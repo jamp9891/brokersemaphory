@@ -24,7 +24,9 @@ public class SignalPlanController {
 
 	@Autowired
 	private TotalPlanService totalPlanService;
+	@Autowired
 	private ConexionPlanService conexionPlanService;
+	@Autowired
 	private DesconexionPlanService desconexionPlanService;
 
 	private static final String REG_EX = "\"[^a-zA-Z0-9]\"";
