@@ -1,0 +1,21 @@
+trigger:
+  branches:
+    include:
+    - master
+    - release/*
+    - develop
+    
+pool: hosted-linux
+
+resources:
+  repositories:
+    - repository: CI
+      type: git
+      name: ProjectDevSecOps\pipeline-template
+      ref: refs/heads/develop
+
+steps:
+  - template: pipeline_maven.yml@CI
+    parameters:
+      sonarName: fidelidad_integracion-fidelidad_ms-transferencia-puntos
+      testTask: test -B

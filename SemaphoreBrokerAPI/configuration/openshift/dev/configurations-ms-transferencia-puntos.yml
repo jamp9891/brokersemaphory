@@ -1,0 +1,20 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: configurations-ms-transferencia-puntos
+data:
+  ms.configuration.service.webclient.latam.basepath: https://test.api.latam-pass.latam.com
+  ms.configuration.service.webclient.latam.pathservicetoken: /oauth/token
+  ms.configuration.service.webclient.latam.pathServiceGetMemberInfo: /programs/latam-pass/members
+  ms.configuration.service.webclient.latam.path_accrual: /programs/latam-pass/members
+  ms.configuration.service.webclient.latam.pathServiceTransferPoint: /
+  ms.configuration.service.webclient.latam.pathServiceTransferPointLatam: https://terpel--dev.sandbox.my.salesforce.com/services/apexrest/PointTransactionManagement/v1/
+  ms.configuration.service.webclient.latam.basePathSalesforce: https://test.salesforce.com/services
+  ms.configuration.service.webclient.latam.grant_type: client_credentials
+  ms.configuration.service.webclient.latam.scope_member_show: member-show
+  ms.configuration.service.webclient.latam.scope_accrual_create: accrual-create
+  ms.configuration.service.webclient.latam.product_name_accrual: Consumo
+  configuration.redis.connection.host: redis-salesforce-token.terpel-dcem-fidelizacion-dev.svc.cluster.local
+  configuration.redis.connection.port: "6379"
+  configuration.redis.connection.keyRedis: salesforce-oauth-token-dev
+

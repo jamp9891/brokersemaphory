@@ -1,0 +1,70 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  codec:
+    max-in-memory-size: 1MB
+  profiles:
+    active: prod
+  cache:
+    type: redis
+  redis:
+    host: ${TOKEN_REDIS_HOST}
+    port: ${TOKEN_REDIS_PORT}
+    password: ${TOKEN_REDIS_PASSWORD}
+swagger:
+  allowed: true
+  api:
+    title: Terpel OC - Proveedor LATAM
+    version: '@project.version@'
+    description: This component allows to accumulate LATAM miles using vive terpel points
+ms:
+  configuration:
+    proveedor:
+      latam:
+        basePath: ${BASEPATH}
+        pathServiceToken: ${PATHSERVICETOKEN}
+        pathServiceGetMemberInfo: ${PATHSERVICEGETMEMBERINFO}
+        pathAccrual: ${PATHACCRUAL}
+        pathTransferPoint: ${PATHTRANSFERPOINT}
+        pathTransferPointLatam: ${PATHTRANSFERPOINTLATAM}
+        basePathSalesforce: ${BASEPATHSALESFORCE}
+        grantType: ${GRANTTYPE}
+        scopeMemberShow: ${SCOPE_MEMBER_SHOW}
+        scopeAccrualCreate: ${SCOPE_ACCRUAL_CREATE}
+        clientId: ${CLIENTID}
+        clientSecret: ${CLIENTSECRET}
+        genericBusinessErrorMsg: "No se encontraron datos"
+        productCodeAccrual: ${PRODUCTCODEACC}
+        productNameAccrual: ${PRODUCTNAME}
+        keyRedis: ${TOKEN_REDIS_KEY}
+logging:
+  file: classpath:logback-spring.xml
+  config: classpath:logback-spring.xml
+  level:
+    ms-client: ${log_level:INFO}
+loggingName: ms-transferencia-puntos
+info:
+  app:
+    version: '@project.version@'
+GRANTTYPE: client_credentials
+SCOPE_MEMBER_SHOW: member-show
+CLIENTID: TERPEL_CO
+CLIENTSECRET: q03hjDHBMmNhyGltxrkUT2BCAbbbzesYyz0a3KOw
+BASEPATH: https://test.api.latam-pass.latam.com
+PATHSERVICETOKEN: /oauth/token
+PATHSERVICEGETMEMBERINFO: /programs/latam-pass/members
+PATHTRANSFERPOINT: /
+PATHTRANSFERPOINTLATAM: https://terpel--dev.sandbox.my.salesforce.com/services/apexrest/PointTransactionManagement/v1/
+BASEPATHSALESFORCE: https://test.salesforce.com/services
+SCOPE_ACCRUAL_CREATE: accrual-create
+PRODUCTNAME: Consumo
+PATHACCRUAL: /programs/latam-pass/members
+PRODUCTCODEACC:  TETRF
+TOKEN_REDIS_HOST: localhost
+TOKEN_REDIS_PORT: 6379
+TOKEN_REDIS_PASSWORD: pass
+TOKEN_REDIS_KEY: salesforce-oauth-token

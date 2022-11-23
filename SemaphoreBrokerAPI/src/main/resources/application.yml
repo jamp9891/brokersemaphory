@@ -1,0 +1,25 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  codec:
+    max-in-memory-size: 1MB
+swagger:
+  allowed: true
+  api:
+    title: SEMAPHORE - SIGNAL PLAN
+    version: '@project.version@'
+    description: This component allows to communication between iu and monolithic system
+ms:
+  configuration:
+    signal:
+      basePath: https://interseccioncl34cra28.free.beeceptor.com
+      pathPlanTotal: /plantotal
+      pathPlanConexion: /conexion
+      pathPlanDesConexion: /desconexion
+info:
+  app:
+    version: '@project.version@'
